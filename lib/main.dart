@@ -1,16 +1,17 @@
+import 'package:dokan/app/bindings/app_binding.dart';
 import 'package:dokan/app/controllers/app_controller.dart';
-import 'package:dokan/app/services/connectivity_service.dart';
 import 'package:dokan/app/state/app_life_cycle.dart';
 import 'package:dokan/router/routers.dart';
 import 'package:dokan/utils/keys.dart';
 import 'package:dokan/utils/rgb.dart';
+import 'package:dokan/utils/system_ui_overlay.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  // connectivity init
-  ConnectivityServices.stream();
+  // overlay init
+  SystemUIOverlay.initSystemUI();
   // run app
   runApp(const MyApp());
 }
@@ -56,6 +57,9 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
       navigatorKey: Keys.navigator,
       initialRoute: '/',
       getPages: Routers.initRoute,
+      initialBinding: BindingsBuilder.put(
+        () => AppBinding(),
+      ),
     );
   }
 }
