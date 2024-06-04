@@ -11,6 +11,7 @@ class RGB {
   static const Color pink = Color(0xFFFF708A);
   static const Color muted = Color(0xFFA4A9AF);
   static const Color border = Color(0xFFD2DBE0);
+  static const Color rating = Color(0xFFF5A623);
   static const Color gradientTop = Color(0xFFFF679B);
   static const Color gradientBottom = Color(0xFFFF7B51);
   static const Color shadow = Color.fromRGBO(184, 45, 72, 0.146635);

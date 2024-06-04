@@ -1,5 +1,8 @@
 import 'package:dokan/app/controllers/home_controller.dart';
-import 'package:dokan/screens/components/home_components.dart';
+import 'package:dokan/screens/components/home_component.dart';
+import 'package:dokan/screens/widgets/bottom_navbar.dart';
+import 'package:dokan/screens/widgets/floating_button.dart';
+import 'package:dokan/utils/rgb.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,11 +17,19 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Obx(() {
-        return HomeComponents.list.elementAt(
-          HomeController.selectedPage.value,
-        );
+      backgroundColor: RGB.background,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingButton.show,
+      bottomNavigationBar: Obx(() {
+        return BottomNavbar.show();
       }),
+      body: SafeArea(
+        child: Obx(() {
+          return HomeComponents.allItems.elementAt(
+            HomeController.selectedPage.value,
+          );
+        }),
+      ),
     );
   }
 }

@@ -2,8 +2,8 @@ import 'package:dokan/app/bindings/app_binding.dart';
 import 'package:dokan/app/controllers/app_controller.dart';
 import 'package:dokan/app/state/app_life_cycle.dart';
 import 'package:dokan/router/routers.dart';
+import 'package:dokan/theme/light.dart';
 import 'package:dokan/utils/keys.dart';
-import 'package:dokan/utils/rgb.dart';
 import 'package:dokan/utils/system_ui_overlay.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -47,12 +47,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: RGB.primary,
-        ),
-        useMaterial3: true,
-      ),
+      theme: Themes.light,
       themeMode: AppController.themeMode(),
       navigatorKey: Keys.navigator,
       initialRoute: '/',

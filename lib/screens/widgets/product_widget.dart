@@ -1,3 +1,5 @@
+import 'package:dokan/utils/dimensions.dart';
+import 'package:dokan/utils/rgb.dart';
 import 'package:flutter/material.dart';
 
 class ProductWidget extends StatelessWidget {
@@ -5,6 +7,15 @@ class ProductWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return const Center(
+      child: Text(
+        'Product Coming Soon!',
+        style: TextStyle(
+          fontSize: Dimensions.defaultSize,
+          fontWeight: FontWeight.w800,
+          color: RGB.muted,
+        ),
+      ),
+    );
   }
 }

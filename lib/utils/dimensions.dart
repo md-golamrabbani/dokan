@@ -9,4 +9,5 @@ class Dimensions {
   static const double radiusSize = 12.00;
   static const double avatarSize = 54.0;
   static const double circleSize = 100.0;
+  static const double bottomAppBarSize = 72.0;
 }

@@ -4,7 +4,7 @@ import 'package:dokan/screens/widgets/product_widget.dart';
 import 'package:dokan/screens/widgets/profile_widget.dart';
 
 class HomeComponents {
-  static List list = [
+  static List allItems = [
     const HomeWidget(),
     const ProductWidget(),
     const CartWidget(),
