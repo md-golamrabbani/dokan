@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Girls Stylish Dresses",
+    "price": 150,
+    "discount_price": 79,
+    "image_url": "assets/images/1.jpg"
+  },
+  {
+    "name": "Man Stylish Dresses",
+    "price": 150,
+    "discount_price": 79,
+    "image_url": "assets/images/2.jpg"
+  },
+  {
+    "name": "Another Stylish Dress",
+    "price": 150,
+    "discount_price": 79,
+    "image_url": "assets/images/3.jpg"
+  },
+  {
+    "name": "Stylish Outfit",
+    "price": 150,
+    "discount_price": 79,
+    "image_url": "assets/images/4.jpg"
+  },
+  {
+    "name": "Girls Stylish Dresses",
+    "price": 150,
+    "discount_price": 79,
+    "image_url": "assets/images/1.jpg"
+  },
+  {
+    "name": "Man Stylish Dresses",
+    "price": 150,
+    "discount_price": 79,
+    "image_url": "assets/images/2.jpg"
+  },
+  {
+    "name": "Another Stylish Dress",
+    "price": 150,
+    "discount_price": 79,
+    "image_url": "assets/images/3.jpg"
+  },
+  {
+    "name": "Stylish Outfit",
+    "price": 150,
+    "discount_price": 79,
+    "image_url": "assets/images/4.jpg"
+  }
+]
