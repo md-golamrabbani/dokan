@@ -1,6 +1,8 @@
 import 'package:dokan/app/bindings/home_binding.dart';
+import 'package:dokan/app/bindings/register_binding.dart';
+import 'package:dokan/app/bindings/signin_binding.dart';
 import 'package:dokan/app/middleware/auth_middleware.dart';
-import 'package:dokan/screens/auth/login_screen.dart';
+import 'package:dokan/screens/auth/signin_screen.dart';
 import 'package:dokan/screens/auth/register_screen.dart';
 import 'package:dokan/screens/home_screen.dart';
 import 'package:dokan/screens/splash_screen.dart';
@@ -13,13 +15,14 @@ class Routers {
       page: () => const SplashScreen(),
     ),
     GetPage(
-      name: '/login',
-      page: () => const LoginScreen(),
-      binding: HomeBinding(),
+      name: '/signin',
+      page: () => const SignInScreen(),
+      binding: SignInBinding(),
     ),
     GetPage(
       name: '/register',
       page: () => const RegisterScreen(),
+      binding: RegisterBinding(),
     ),
     GetPage(
       name: '/home',

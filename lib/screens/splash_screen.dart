@@ -48,7 +48,7 @@ class _SplashScreenState extends State<SplashScreen>
                       if (await AuthService.check()) {
                         Get.offAllNamed('/home');
                       } else {
-                        Get.offAllNamed('/login');
+                        Get.offAllNamed('/signin');
                       }
                     });
                 },

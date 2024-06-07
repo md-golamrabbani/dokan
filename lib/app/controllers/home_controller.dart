@@ -14,6 +14,13 @@ class HomeController extends GetxController {
     productLoad();
   }
 
+  @override
+  void onClose() {
+    isProductLoaded.value = false;
+    selectedPage.value = 0;
+    super.onClose();
+  }
+
   // tab page update
   static void pageUpdate({required int index}) {
     selectedPage.value = index;

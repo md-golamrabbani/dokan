@@ -1,4 +1,5 @@
 import 'package:dokan/app/services/auth_service.dart';
+import 'package:dokan/utils/button.dart';
 import 'package:dokan/utils/dimensions.dart';
 import 'package:dokan/utils/rgb.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +10,8 @@ class ProductWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         const Center(
           child: Text(
@@ -21,6 +24,7 @@ class ProductWidget extends StatelessWidget {
           ),
         ),
         ElevatedButton(
+          style: Button.success,
           onPressed: () async {
             await AuthService.logout();
           },

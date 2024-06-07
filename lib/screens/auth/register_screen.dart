@@ -8,14 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-class RegisterScreen extends StatefulWidget {
+class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});
 
-  @override
-  State<RegisterScreen> createState() => _RegisterScreenState();
-}
-
-class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -255,10 +250,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                   InkWell(
                     onTap: () {
-                      Get.offAndToNamed('/login');
+                      Get.offAndToNamed('/signin');
                     },
                     child: const Text(
-                      'Login',
+                      'Sign In',
                       style: TextStyle(
                         color: Colors.blue,
                         fontWeight: FontWeight.w600,

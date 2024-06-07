@@ -5,43 +5,28 @@ import 'package:dokan/app/config/prefs.dart';
 import 'package:dokan/app/config/url.dart';
 import 'package:dokan/router/api.dart';
 import 'package:dokan/utils/debugger.dart';
+import 'package:dokan/utils/snakbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart' hide Response;
 
-class RegisterController extends GetxController {
-  static final GlobalKey<FormState> registerFormKey = GlobalKey<FormState>(
-    debugLabel: 'registerFormKey',
+class SignInController extends GetxController {
+  static final GlobalKey<FormState> signInFormKey = GlobalKey<FormState>(
+    debugLabel: 'signInFormKey',
   );
   static final TextEditingController userName = TextEditingController();
-  static final TextEditingController userEmail = TextEditingController();
   static final TextEditingController userPassword = TextEditingController();
-  static final TextEditingController userPasswordConfirm =
-      TextEditingController();
+  static RxBool isRememberMe = false.obs;
 
   @override
   void onClose() {
     userName.dispose();
-    userEmail.dispose();
     userPassword.dispose();
-    userPasswordConfirm.dispose();
     super.onClose();
   }
 
   static String? userNameValidator(String value) {
     if (value.isEmpty) {
       return 'Username field is required!';
-    }
-    return null;
-  }
-
-  static String? emailValidator(String value) {
-    // Regular expression for email format validation
-    final emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
-
-    if (value.isEmpty) {
-      return 'Email field is required!';
-    } else if (!emailRegex.hasMatch(value)) {
-      return 'Please enter a valid email address!';
     }
     return null;
   }
@@ -53,40 +38,37 @@ class RegisterController extends GetxController {
     return null;
   }
 
-  static String? passwordValidator2(String value) {
-    if (value.isEmpty) {
-      return 'Confirm password field is required!';
-    } else if (value != userPassword.text) {
-      return 'Password not match!';
-    }
-    return null;
+  static void rememberMe() {
+    isRememberMe.value = !isRememberMe.value;
   }
 
   static void resetForm() {
-    registerFormKey.currentState?.reset();
+    signInFormKey.currentState?.reset();
     userName.clear();
-    userEmail.clear();
     userPassword.clear();
-    userPasswordConfirm.clear();
   }
 
   static void submit() async {
-    final isValid = registerFormKey.currentState!.validate();
+    final isValid = signInFormKey.currentState!.validate();
     Get.focusScope!.unfocus();
     if (isValid) {
-      registerFormKey.currentState!.save();
+      signInFormKey.currentState!.save();
       try {
         Response response = await API.post(
-          URL.register,
+          URL.signIn,
           data: jsonEncode({
             "username": userName.text,
-            "email": userEmail.text,
             "password": userPassword.text,
           }),
         );
         if (response.statusCode == 200) {
-          RegisterController.resetForm();
+          SignInController.resetForm();
           Prefs.set(key: 'is_login', value: '1');
+          Prefs.set(key: 'jwtToken', value: response.data['token']);
+          Prefs.set(key: 'user', value: response.data);
+          SnackBars.showSuccessSnackbar(
+            text: 'Welcome back, ${response.data['user_display_name']}',
+          );
           Get.offAllNamed('/home');
         }
       } catch (e) {
