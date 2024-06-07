@@ -6,10 +6,12 @@ inputStyle({
   IconData? prefixIcon,
   IconData? suffixIcon,
   VoidCallback? suffixOnPressed,
+  String? label,
   bool? passwordVisibility,
   required String hintText,
 }) {
   return InputDecoration(
+    label: label != null ? Text(label) : null,
     prefixIcon: prefixIcon != null
         ? Icon(
             prefixIcon,
@@ -44,28 +46,28 @@ inputStyle({
     fillColor: RGB.white,
     filled: true,
     enabledBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(Dimensions.radiusSize),
+      borderRadius: BorderRadius.circular(Dimensions.radiusSize - 2),
       borderSide: const BorderSide(
         color: RGB.border,
         width: 1,
       ),
     ),
     focusedBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(Dimensions.radiusSize),
+      borderRadius: BorderRadius.circular(Dimensions.radiusSize - 2),
       borderSide: const BorderSide(
         color: RGB.border,
         width: 1,
       ),
     ),
     focusedErrorBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(Dimensions.radiusSize),
+      borderRadius: BorderRadius.circular(Dimensions.radiusSize - 2),
       borderSide: const BorderSide(
         color: RGB.muted,
         width: 1,
       ),
     ),
     errorBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(Dimensions.radiusSize),
+      borderRadius: BorderRadius.circular(Dimensions.radiusSize - 2),
       borderSide: const BorderSide(
         color: RGB.muted,
         width: 1,
