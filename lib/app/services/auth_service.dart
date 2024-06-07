@@ -10,7 +10,7 @@ class AuthService extends GetxService {
   // auth info
   static logout() async {
     await Prefs.clear();
-    Get.offAllNamed('/login');
+    Get.offAllNamed('/signin');
   }
 
   // get fcm token
