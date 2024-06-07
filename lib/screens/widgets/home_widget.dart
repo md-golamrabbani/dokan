@@ -295,61 +295,62 @@ class HomeWidget extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Expanded(
-                    child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Center(
-                      child: Container(
-                        width: Dimensions.lgSize * 3,
-                        height: Dimensions.tinySize / 3,
-                        margin: const EdgeInsets.symmetric(
-                          vertical: Dimensions.tinySize,
-                        ),
-                        decoration: BoxDecoration(
-                          color: RGB.pink.withOpacity(0.5),
-                          borderRadius: BorderRadius.circular(
-                            Dimensions.defaultSize,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Center(
+                        child: Container(
+                          width: Dimensions.lgSize * 3,
+                          height: Dimensions.tinySize / 3,
+                          margin: const EdgeInsets.symmetric(
+                            vertical: Dimensions.tinySize,
+                          ),
+                          decoration: BoxDecoration(
+                            color: RGB.pink.withOpacity(0.5),
+                            borderRadius: BorderRadius.circular(
+                              Dimensions.defaultSize,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.only(
-                        left: Dimensions.tinySize / 3,
-                        top: Dimensions.smSize / 2,
-                        bottom: Dimensions.smSize / 2,
-                      ),
-                      child: Text(
-                        'Filter',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w700,
-                          fontSize: Dimensions.lgSize,
+                      const Padding(
+                        padding: EdgeInsets.only(
+                          left: Dimensions.tinySize / 3,
+                          top: Dimensions.smSize / 2,
+                          bottom: Dimensions.smSize / 2,
+                        ),
+                        child: Text(
+                          'Filter',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w700,
+                            fontSize: Dimensions.lgSize,
+                          ),
                         ),
                       ),
-                    ),
-                    CheckBoxs.show(
-                      onChanged: (value) {},
-                      text: 'Newest',
-                      value: true,
-                    ),
-                    CheckBoxs.show(
-                      onChanged: (value) {},
-                      text: 'Oldest',
-                    ),
-                    CheckBoxs.show(
-                      onChanged: (value) {},
-                      text: 'Price low > High',
-                    ),
-                    CheckBoxs.show(
-                      onChanged: (value) {},
-                      text: 'Price high > Low',
-                    ),
-                    CheckBoxs.show(
-                      onChanged: (value) {},
-                      text: 'Best selling',
-                    ),
-                  ],
-                )),
+                      CheckBoxs.show(
+                        onChanged: (value) {},
+                        text: 'Newest',
+                        value: true,
+                      ),
+                      CheckBoxs.show(
+                        onChanged: (value) {},
+                        text: 'Oldest',
+                      ),
+                      CheckBoxs.show(
+                        onChanged: (value) {},
+                        text: 'Price low > High',
+                      ),
+                      CheckBoxs.show(
+                        onChanged: (value) {},
+                        text: 'Price high > Low',
+                      ),
+                      CheckBoxs.show(
+                        onChanged: (value) {},
+                        text: 'Best selling',
+                      ),
+                    ],
+                  ),
+                ),
                 Row(
                   children: [
                     Expanded(

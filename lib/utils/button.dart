@@ -22,6 +22,15 @@ class Button {
         ),
       ),
     ),
+    shadowColor: MaterialStateProperty.all(Colors.transparent),
+    overlayColor: MaterialStateProperty.all(Colors.transparent),
+    elevation: MaterialStateProperty.all(0),
+    side: MaterialStateProperty.all(
+      const BorderSide(
+        color: RGB.border,
+        width: 1,
+      ),
+    ),
   );
 
   static ButtonStyle success = ButtonStyle(
@@ -40,5 +49,7 @@ class Button {
         ),
       ),
     ),
+    shadowColor: MaterialStateProperty.all(Colors.transparent),
+    elevation: MaterialStateProperty.all(0),
   );
 }
