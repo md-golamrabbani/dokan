@@ -4,12 +4,13 @@ import 'package:get/get.dart';
 class AuthService extends GetxService {
   // auth check
   static check() async {
-    return await Prefs.get(key: 'employee_id') == '' ? false : true;
+    return await Prefs.get(key: 'is_login') == '' ? false : true;
   }
 
   // auth info
   static logout() async {
-    return await Prefs.clear();
+    await Prefs.clear();
+    Get.offAllNamed('/login');
   }
 
   // get fcm token

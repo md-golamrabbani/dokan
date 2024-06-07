@@ -10,7 +10,7 @@ class Dialogs {
     return showDialog(
       context: Keys.navigator.currentContext!,
       barrierDismissible: false,
-      barrierColor: RGB.primary.withOpacity(0.85),
+      barrierColor: RGB.primary.withOpacity(0.75),
       builder: (BuildContext context) {
         return PopScope(
           canPop: false,

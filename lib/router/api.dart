@@ -84,22 +84,31 @@ class API {
           data: data,
           options: Options(
             headers: {
-              "Content-Type": "application/x-www-form-urlencoded",
+              "Content-Type": "application/json",
             },
           ),
           cancelToken: cancelToken,
           onSendProgress: onSendProgress,
           onReceiveProgress: onReceiveProgress,
         );
-        if (kDebugMode) {
-          print("----------------POST Response----------------");
-          print(json.decode(response.data));
-          print("----------------POST Response----------------");
+        try {
+          if (kDebugMode) {
+            print("----------------POST Response----------------");
+            print(response.data);
+            print("----------------POST Response----------------");
+          }
+          if (isLoading) {
+            AppController.loaderDismiss();
+          }
+          return response;
+        } catch (e) {
+          if (isLoading) {
+            AppController.loaderDismiss();
+          }
+          if (kDebugMode) {
+            print(e);
+          }
         }
-        if (isLoading) {
-          AppController.loaderDismiss();
-        }
-        return json.decode(response.data);
       } else {
         if (AppController.isLoading.value) {
           AppController.loaderDismiss();

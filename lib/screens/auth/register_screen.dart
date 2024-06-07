@@ -1,3 +1,4 @@
+import 'package:dokan/app/controllers/register_controller.dart';
 import 'package:dokan/utils/button.dart';
 import 'package:dokan/utils/constant.dart';
 import 'package:dokan/utils/dimensions.dart';
@@ -78,97 +79,128 @@ class _RegisterScreenState extends State<RegisterScreen> {
               const SizedBox(
                 height: Dimensions.avatarSize / 2,
               ),
-              // name
-              Container(
-                margin: const EdgeInsets.only(
-                  bottom: Dimensions.defaultSize * 1.5,
-                ),
-                decoration: Constant.inputFormBoxDecoration,
-                child: TextFormField(
-                  decoration: inputStyle(
-                    isPrefixIconSvg: true,
-                    prefixIcon: Icons.person,
-                    svgPrefixIcon: 'assets/icons/user.svg',
-                    hintText: 'Name',
-                    borderWidth: 0,
-                    borderColor: Colors.transparent,
-                    contentPadding: const EdgeInsets.symmetric(
-                      vertical: Dimensions.defaultSize * 1.25,
-                      horizontal: Dimensions.defaultSize,
+              Form(
+                key: RegisterController.registerFormKey,
+                child: Column(
+                  children: [
+                    // name
+                    Container(
+                      margin: const EdgeInsets.only(
+                        bottom: Dimensions.defaultSize * 1.5,
+                      ),
+                      decoration: Constant.inputFormBoxDecoration,
+                      child: TextFormField(
+                        controller: RegisterController.userName,
+                        validator: (value) {
+                          return RegisterController.userNameValidator(value!);
+                        },
+                        decoration: inputStyle(
+                          isPrefixIconSvg: true,
+                          prefixIcon: Icons.person,
+                          svgPrefixIcon: 'assets/icons/user.svg',
+                          hintText: 'Name',
+                          borderWidth: 0,
+                          borderColor: Colors.transparent,
+                          contentPadding: const EdgeInsets.symmetric(
+                            vertical: Dimensions.defaultSize * 1.25,
+                            horizontal: Dimensions.defaultSize,
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-              ),
-              // email
-              Container(
-                margin: const EdgeInsets.only(
-                  bottom: Dimensions.defaultSize * 1.5,
-                ),
-                decoration: Constant.inputFormBoxDecoration,
-                child: TextFormField(
-                  decoration: inputStyle(
-                    isPrefixIconSvg: true,
-                    prefixIcon: Icons.person,
-                    svgPrefixIcon: 'assets/icons/email.svg',
-                    hintText: 'Email',
-                    borderWidth: 0,
-                    borderColor: Colors.transparent,
-                    contentPadding: const EdgeInsets.symmetric(
-                      vertical: Dimensions.defaultSize * 1.25,
-                      horizontal: Dimensions.defaultSize,
+                    // email
+                    Container(
+                      margin: const EdgeInsets.only(
+                        bottom: Dimensions.defaultSize * 1.5,
+                      ),
+                      decoration: Constant.inputFormBoxDecoration,
+                      child: TextFormField(
+                        controller: RegisterController.userEmail,
+                        validator: (value) {
+                          return RegisterController.emailValidator(value!);
+                        },
+                        decoration: inputStyle(
+                          isPrefixIconSvg: true,
+                          prefixIcon: Icons.person,
+                          svgPrefixIcon: 'assets/icons/email.svg',
+                          hintText: 'Email',
+                          borderWidth: 0,
+                          borderColor: Colors.transparent,
+                          contentPadding: const EdgeInsets.symmetric(
+                            vertical: Dimensions.defaultSize * 1.25,
+                            horizontal: Dimensions.defaultSize,
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-              ),
-              // password
-              Container(
-                margin: const EdgeInsets.only(
-                  bottom: Dimensions.defaultSize * 1.5,
-                ),
-                decoration: Constant.inputFormBoxDecoration,
-                child: TextFormField(
-                  decoration: inputStyle(
-                    isPrefixIconSvg: true,
-                    prefixIcon: Icons.person,
-                    svgPrefixIcon: 'assets/icons/password.svg',
-                    hintText: 'Password',
-                    borderWidth: 0,
-                    borderColor: Colors.transparent,
-                    contentPadding: const EdgeInsets.symmetric(
-                      vertical: Dimensions.defaultSize * 1.25,
-                      horizontal: Dimensions.defaultSize,
+                    // password
+                    Container(
+                      margin: const EdgeInsets.only(
+                        bottom: Dimensions.defaultSize * 1.5,
+                      ),
+                      decoration: Constant.inputFormBoxDecoration,
+                      child: TextFormField(
+                        controller: RegisterController.userPassword,
+                        validator: (value) {
+                          return RegisterController.passwordValidator(value!);
+                        },
+                        decoration: inputStyle(
+                          isPrefixIconSvg: true,
+                          prefixIcon: Icons.person,
+                          svgPrefixIcon: 'assets/icons/password.svg',
+                          hintText: 'Password',
+                          borderWidth: 0,
+                          borderColor: Colors.transparent,
+                          contentPadding: const EdgeInsets.symmetric(
+                            vertical: Dimensions.defaultSize * 1.25,
+                            horizontal: Dimensions.defaultSize,
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-              ),
-              // Confirm Password
-              Container(
-                margin: const EdgeInsets.only(
-                  bottom: Dimensions.defaultSize * 1.5,
-                ),
-                decoration: Constant.inputFormBoxDecoration,
-                child: TextFormField(
-                  decoration: inputStyle(
-                    isPrefixIconSvg: true,
-                    prefixIcon: Icons.person,
-                    svgPrefixIcon: 'assets/icons/password.svg',
-                    hintText: 'Confirm Password',
-                    borderWidth: 0,
-                    borderColor: Colors.transparent,
-                    contentPadding: const EdgeInsets.symmetric(
-                      vertical: Dimensions.defaultSize * 1.25,
-                      horizontal: Dimensions.defaultSize,
+                    // Confirm Password
+                    Container(
+                      margin: const EdgeInsets.only(
+                        bottom: Dimensions.defaultSize * 1.5,
+                      ),
+                      decoration: Constant.inputFormBoxDecoration,
+                      child: TextFormField(
+                        controller: RegisterController.userPasswordConfirm,
+                        validator: (value) {
+                          return RegisterController.passwordValidator2(value!);
+                        },
+                        decoration: inputStyle(
+                          isPrefixIconSvg: true,
+                          prefixIcon: Icons.person,
+                          svgPrefixIcon: 'assets/icons/password.svg',
+                          hintText: 'Confirm Password',
+                          borderWidth: 0,
+                          borderColor: Colors.transparent,
+                          contentPadding: const EdgeInsets.symmetric(
+                            vertical: Dimensions.defaultSize * 1.25,
+                            horizontal: Dimensions.defaultSize,
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
+                    const SizedBox(
+                      height: Dimensions.avatarSize / 2,
+                    ),
+                    ElevatedButton(
+                      style: Button.primary,
+                      onPressed: () {
+                        RegisterController.submit();
+                      },
+                      child: SizedBox(
+                        width: Get.width,
+                        child: const Text(
+                          'Sign Up',
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-              const SizedBox(
-                height: Dimensions.avatarSize / 2,
-              ),
-              ElevatedButton(
-                style: Button.primary,
-                onPressed: () {},
-                child: const Text('Sign Up'),
               ),
               const SizedBox(
                 height: Dimensions.avatarSize / 1.5,
