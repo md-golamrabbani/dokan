@@ -46,7 +46,7 @@ class _SplashScreenState extends State<SplashScreen>
                     ..duration = composition.duration
                     ..forward().whenComplete(() async {
                       // if (await AuthService.check()) {
-                      Get.offAllNamed('/home');
+                      Get.offAllNamed('/register');
                       // } else {
                       //   Get.offAllNamed('/login');
                       // }
