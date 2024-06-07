@@ -114,6 +114,7 @@ class BottomNavbar {
         child: SvgPicture.asset(
           assetPath,
           width: width,
+          // ignore: deprecated_member_use
           color: HomeController.selectedPage.value == pageIndex
               ? RGB.primary
               : RGB.secondary.withOpacity(0.75),

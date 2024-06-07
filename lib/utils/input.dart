@@ -1,22 +1,42 @@
 import 'package:dokan/utils/dimensions.dart';
 import 'package:dokan/utils/rgb.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 inputStyle({
+  bool isPrefixIconSvg = false,
   IconData? prefixIcon,
+  String? svgPrefixIcon,
+  double? svgPrefixIconSize,
   IconData? suffixIcon,
   VoidCallback? suffixOnPressed,
   String? label,
   bool? passwordVisibility,
+  EdgeInsets? contentPadding,
+  double? borderWidth,
+  Color? borderColor,
   required String hintText,
 }) {
   return InputDecoration(
     label: label != null ? Text(label) : null,
     prefixIcon: prefixIcon != null
-        ? Icon(
-            prefixIcon,
-            size: Dimensions.lgSize,
-          )
+        ? isPrefixIconSvg == false
+            ? Icon(
+                prefixIcon,
+                size: Dimensions.lgSize,
+              )
+            : Container(
+                alignment: Alignment.centerRight,
+                width: 40,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: Dimensions.smSize,
+                ),
+                child: SvgPicture.asset(
+                  svgPrefixIcon!,
+                  width: svgPrefixIconSize ?? Dimensions.defaultSize * 1.25,
+                  height: svgPrefixIconSize ?? Dimensions.defaultSize * 1.25,
+                ),
+              )
         : null,
     suffixIcon: suffixOnPressed != null
         ? IconButton(
@@ -36,10 +56,10 @@ inputStyle({
         : suffixIcon != null
             ? Icon(suffixIcon)
             : null,
-    border: const OutlineInputBorder(
+    border: OutlineInputBorder(
       borderSide: BorderSide(
-        width: 1,
-        color: RGB.muted,
+        width: borderWidth ?? 1,
+        color: borderColor ?? RGB.muted,
       ),
     ),
     hintText: hintText,
@@ -47,35 +67,36 @@ inputStyle({
     filled: true,
     enabledBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(Dimensions.radiusSize - 2),
-      borderSide: const BorderSide(
-        color: RGB.border,
-        width: 1,
+      borderSide: BorderSide(
+        color: borderColor ?? RGB.border,
+        width: borderWidth ?? 1,
       ),
     ),
     focusedBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(Dimensions.radiusSize - 2),
-      borderSide: const BorderSide(
-        color: RGB.border,
-        width: 1,
+      borderSide: BorderSide(
+        color: borderColor ?? RGB.border,
+        width: borderWidth ?? 1,
       ),
     ),
     focusedErrorBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(Dimensions.radiusSize - 2),
-      borderSide: const BorderSide(
-        color: RGB.muted,
-        width: 1,
+      borderSide: BorderSide(
+        color: borderColor ?? RGB.muted,
+        width: borderWidth ?? 1,
       ),
     ),
     errorBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(Dimensions.radiusSize - 2),
-      borderSide: const BorderSide(
-        color: RGB.muted,
-        width: 1,
+      borderSide: BorderSide(
+        color: borderColor ?? RGB.muted,
+        width: borderWidth ?? 1,
       ),
     ),
-    contentPadding: const EdgeInsets.all(
-      Dimensions.defaultSize / 1.25,
-    ),
+    contentPadding: contentPadding ??
+        const EdgeInsets.all(
+          Dimensions.defaultSize / 1.25,
+        ),
     counterText: '',
   );
 }

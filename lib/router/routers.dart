@@ -25,9 +25,9 @@ class Routers {
       name: '/home',
       page: () => const HomeScreen(),
       binding: HomeBinding(),
-      // middlewares: [
-      //   AuthMiddleware(),
-      // ],
+      middlewares: [
+        AuthMiddleware(),
+      ],
     ),
   ];
 }

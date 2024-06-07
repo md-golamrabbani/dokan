@@ -45,11 +45,11 @@ class _SplashScreenState extends State<SplashScreen>
                   _lottieController
                     ..duration = composition.duration
                     ..forward().whenComplete(() async {
-                      // if (await AuthService.check()) {
-                      Get.offAllNamed('/home');
-                      // } else {
-                      //   Get.offAllNamed('/login');
-                      // }
+                      if (await AuthService.check()) {
+                        Get.offAllNamed('/home');
+                      } else {
+                        Get.offAllNamed('/login');
+                      }
                     });
                 },
               ),
